@@ -1,0 +1,18 @@
+import pickle
+import numpy as np
+import tensorflow as tf
+
+# TensorFlow로 MNIST 데이터셋 다운로드
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
+
+# 데이터셋을 딕셔너리로 저장
+mnist_data = {
+    "x_train": x_train,
+    "y_train": y_train,
+    "x_test": x_test,
+    "y_test": y_test
+}
+
+# pickle로 저장
+with open("mnist.pkl", "wb") as f:
+    pickle.dump(mnist_data, f)
